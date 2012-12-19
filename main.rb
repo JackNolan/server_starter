@@ -4,7 +4,7 @@ require_relative "start_mc_server.rb"
 
 
 use Rack::Auth::Basic, "Halt who goes there!" do |username, password|
-  [username, password] == ['minecraft', 'serverup']
+  [username, password] == [ENV['username'], ENV['password']]
 end
 
 get '/' do
