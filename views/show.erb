@@ -1,0 +1,14 @@
+<div class="content">
+<h3>The server is currently:<span> <%= @aws.status %></span></h3>
+
+<% if @aws.status == "offline" %>
+  <a href="/start"><button>Start up the server</button></a>
+<% elsif @aws.status == "online" %>
+  <a href="/stop"><button>shut down the server</button></a>
+  <% if @aws.current_ip != "23.21.180.84" %>
+    <a href="/assign_ip"><button>assign the ip</button></a>
+  <% end %>
+<% else %>
+  <h1>working...</h1>
+<% end %>
+</div>
